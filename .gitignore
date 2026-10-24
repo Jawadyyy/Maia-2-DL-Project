@@ -1,0 +1,10 @@
+# local runs and downloads (regenerate with the notebook)
+work/
+maia2-reproduction-outputs/
+maia2_data/
+maia2_models/
+lichess_data/
+train_maia2.py
+.ipynb_checkpoints/
+__pycache__/
+.venv/
