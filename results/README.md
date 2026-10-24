@@ -1,6 +1,10 @@
 # Results
 
-This folder is filled from the Colab run (`SMOKE_TEST = False`). The notebook writes everything to
+`smoke_test/` holds the outputs of the pipeline check (`SMOKE_TEST = True`: 1,998 test positions, 300 training games,
+1 epoch, Colab T4, 25 Oct 2026). **They are not the reported results**; they only show that every step runs.
+Its executed notebook is `notebooks/maia2_reproduction_smoke_run.ipynb`.
+
+The real results go in the files below. This folder is filled from the Colab run (`SMOKE_TEST = False`). The notebook writes everything to
 Google Drive under `MyDrive/maia2-reproduction/full/`, and also saves a zip of it as
 `MyDrive/maia2-reproduction/maia2-results-full.zip`. Copy these files here:
 

@@ -1,0 +1,23 @@
+{
+  "python": "3.13.16",
+  "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+  "torch": "2.11.0+cu130",
+  "cuda": "13.0",
+  "gpu": "Tesla T4",
+  "gpu_memory_gb": 15.6,
+  "cpu_count": 2,
+  "numpy": "2.1.3",
+  "pandas": "2.2.3",
+  "python_chess": "1.11.2",
+  "maia2": "0.11.0",
+  "maia2_commit": "67bee6ce7e2f264344fe6d2026a2e18c76a82efa",
+  "colab": true,
+  "smoke_test": true,
+  "settings": {
+    "epochs": 1,
+    "batch_size": 2048,
+    "chunk_size": 100,
+    "balance_cap": null,
+    "seed": 42
+  }
+}

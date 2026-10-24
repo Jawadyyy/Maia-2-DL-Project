@@ -1,0 +1,150 @@
+22:13:25 Configurations:
+22:13:25 	data_root: /content/work/lichess_data
+22:13:25 	save_root: /content/work/own_training_20261024-221322
+22:13:25 	game_type: rapid
+22:13:25 	seed: 42
+22:13:25 	num_workers: 2
+22:13:25 	verbose: 0
+22:13:25 	max_epochs: 1
+22:13:25 	max_ply: 300
+22:13:25 	clock_threshold: 30
+22:13:25 	chunk_size: 100
+22:13:25 	start_year: 2018
+22:13:25 	start_month: 4
+22:13:25 	end_year: 2018
+22:13:25 	end_month: 4
+22:13:25 	from_checkpoint: False
+22:13:25 	checkpoint_epoch: 0
+22:13:25 	checkpoint_year: 2018
+22:13:25 	checkpoint_month: 5
+22:13:25 	num_cpu_left: 16
+22:13:25 	queue_length: 2
+22:13:25 	lr: 0.0001
+22:13:25 	wd: 1e-05
+22:13:25 	batch_size: 2048
+22:13:25 	first_n_moves: 10
+22:13:25 	last_n_moves: 10
+22:13:25 	dim_cnn: 256
+22:13:25 	dim_vit: 1024
+22:13:25 	num_blocks_cnn: 5
+22:13:25 	num_blocks_vit: 2
+22:13:25 	input_channels: 18
+22:13:25 	vit_length: 8
+22:13:25 	elo_dim: 128
+22:13:25 	side_info: True
+22:13:25 	side_info_coefficient: 1.0
+22:13:25 	value: True
+22:13:25 	value_coefficient: 1.0
+22:13:25 	max_games_per_elo_range: 1000000000
+22:13:25 	device: cuda
+22:13:25 Training Data:
+22:13:25 /content/work/lichess_data/lichess_db_standard_rated_2018-04.pgn
+22:13:26 MAIA2Model(
+22:13:26   (chess_cnn): ChessResNet(
+22:13:26     (conv1): Conv2d(18, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26     (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26     (layers): Sequential(
+22:13:26       (0): BasicBlock(
+22:13:26         (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (dropout): Dropout(p=0.5, inplace=False)
+22:13:26       )
+22:13:26       (1): BasicBlock(
+22:13:26         (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (dropout): Dropout(p=0.5, inplace=False)
+22:13:26       )
+22:13:26       (2): BasicBlock(
+22:13:26         (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (dropout): Dropout(p=0.5, inplace=False)
+22:13:26       )
+22:13:26       (3): BasicBlock(
+22:13:26         (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (dropout): Dropout(p=0.5, inplace=False)
+22:13:26       )
+22:13:26       (4): BasicBlock(
+22:13:26         (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26         (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26         (dropout): Dropout(p=0.5, inplace=False)
+22:13:26       )
+22:13:26     )
+22:13:26     (conv_last): Conv2d(256, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+22:13:26     (bn_last): BatchNorm2d(8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+22:13:26   )
+22:13:26   (to_patch_embedding): Sequential(
+22:13:26     (0): Linear(in_features=64, out_features=1024, bias=True)
+22:13:26     (1): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+22:13:26   )
+22:13:26   (transformer): Transformer(
+22:13:26     (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+22:13:26     (layers): ModuleList()
+22:13:26     (elo_layers): ModuleList(
+22:13:26       (0-1): 2 x ModuleList(
+22:13:26         (0): EloAwareAttention(
+22:13:26           (norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+22:13:26           (attend): Softmax(dim=-1)
+22:13:26           (dropout): Dropout(p=0.1, inplace=False)
+22:13:26           (to_qkv): Linear(in_features=1024, out_features=3072, bias=False)
+22:13:26           (elo_query): Linear(in_features=256, out_features=1024, bias=False)
+22:13:26           (to_out): Sequential(
+22:13:26             (0): Linear(in_features=1024, out_features=1024, bias=True)
+22:13:26             (1): Dropout(p=0.1, inplace=False)
+22:13:26           )
+22:13:26         )
+22:13:26         (1): FeedForward(
+22:13:26           (net): Sequential(
+22:13:26             (0): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+22:13:26             (1): Linear(in_features=1024, out_features=1024, bias=True)
+22:13:26             (2): GELU(approximate='none')
+22:13:26             (3): Dropout(p=0.1, inplace=False)
+22:13:26             (4): Linear(in_features=1024, out_features=1024, bias=True)
+22:13:26             (5): Dropout(p=0.1, inplace=False)
+22:13:26           )
+22:13:26         )
+22:13:26       )
+22:13:26     )
+22:13:26   )
+22:13:26   (fc_1): Linear(in_features=1024, out_features=1880, bias=True)
+22:13:26   (fc_2): Linear(in_features=1024, out_features=2021, bias=True)
+22:13:26   (fc_3): Linear(in_features=128, out_features=1, bias=True)
+22:13:26   (fc_3_1): Linear(in_features=1024, out_features=128, bias=True)
+22:13:26   (elo_embedding): Embedding(11, 128)
+22:13:26   (dropout): Dropout(p=0.1, inplace=False)
+22:13:26   (last_ln): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+22:13:26 )
+22:13:32 Trainable Parameters: 23.30M
+22:13:32 Epoch 1
+22:13:32 Calculated source SHA-256: a9567ba2416d8052ddffd8e22a6b6cde157306e76cf0a46b522e3df2434edc7b
+22:13:32 Decompressing /content/work/lichess_data/lichess_db_standard_rated_2018-04.pgn took 0.02s
+22:13:32 Cache not found. Creating chunks for /content/work/lichess_data/lichess_db_standard_rated_2018-04.pgn
+22:13:32 Chunking took 0.00s
+22:13:32 Training /content/work/lichess_data/lichess_db_standard_rated_2018-04.pgn with 3 chunks.
+22:13:37 {(8, 8): 1, (9, 8): 1, (5, 5): 5, (7, 7): 6, (2, 2): 2, (8, 7): 1, (5, 4): 2, (3, 3): 1, (6, 6): 4, (6, 5): 1, (4, 4): 3, (0, 0): 1, (8, 6): 2, (1, 1): 1, (3, 2): 1, (6, 1): 1, (10, 10): 1}
+22:13:45 [1/3]
+22:13:45 [# Positions]: 2.16K
+22:13:45 [# Games]: 34
+22:13:45 [# Loss]: 9.642 | [# Loss MAIA]: 7.74 | [# Loss Side Info]: 0.721 | [# Loss Value]: 1.181
+22:13:46 {(6, 3): 1, (8, 8): 2}
+22:13:47 [2/3]
+22:13:47 [# Positions]: 2.40K
+22:13:47 [# Games]: 37
+22:13:47 [# Loss]: 8.63 | [# Loss MAIA]: 7.603 | [# Loss Side Info]: 0.685 | [# Loss Value]: 0.341
+22:13:52 {(9, 8): 1, (6, 4): 1, (10, 10): 2, (3, 3): 2, (4, 0): 1, (2, 2): 2, (4, 3): 1, (7, 6): 1, (8, 7): 2, (7, 7): 1, (8, 8): 1, (5, 5): 1, (4, 1): 1}
+22:13:54 [3/3]
+22:13:54 [# Positions]: 3.35K
+22:13:54 [# Games]: 54
+22:13:54 [# Loss]: 8.983 | [# Loss MAIA]: 7.502 | [# Loss Side Info]: 0.664 | [# Loss Value]: 0.817
+22:13:54 Month totals: positions=3350, games=54, optimizer_steps=4
+22:13:54 ### (1 / 1) Took 22.62s to train /content/work/lichess_data/lichess_db_standard_rated_2018-04.pgn with 3 chunks.

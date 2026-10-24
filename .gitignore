@@ -8,3 +8,5 @@ train_maia2.py
 .ipynb_checkpoints/
 __pycache__/
 .venv/
+code_results/
+*.zip

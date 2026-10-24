@@ -1,0 +1,27 @@
+{
+  "test": {
+    "raw_rows": 127852,
+    "games": 1931,
+    "positions_after_filter": 106740,
+    "group_counts": {
+      "Skilled": 56812,
+      "Advanced": 41747,
+      "Master": 8181
+    },
+    "paper_group_counts": {
+      "Skilled": 56812,
+      "Advanced": 41747,
+      "Master": 8181
+    },
+    "used_in_this_run": 1998
+  },
+  "train": {
+    "games": 300,
+    "games_passing_official_filter": 57,
+    "positions_after_filters": 3350,
+    "dates": [
+      "2018.04.30"
+    ]
+  },
+  "train_test_game_overlap": 0
+}

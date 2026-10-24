@@ -1,0 +1,10 @@
+{
+  "main_metric": "top-1 accuracy, mean of skill groups",
+  "paper_avg": 53.25,
+  "reproduced_avg": 53.15,
+  "difference_pp": -0.1,
+  "own_training_avg": 7.66,
+  "skill_blind_avg": 53.05,
+  "training_minutes": 0.6,
+  "smoke_test": true
+}
