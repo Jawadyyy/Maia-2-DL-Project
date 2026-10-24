@@ -3,24 +3,37 @@
 CS-444 Deep Learning, Assignment 2, Air University.
 Team: Jawad Mansoor, Muhammad Ali Khan, Waqas Siddique.
 
-We reproduce **Table 1** of *Maia-2: A Unified Model for Human-AI Alignment in Chess* (Tang et al., NeurIPS 2024):
-top-1 accuracy at predicting the move a human plays, for each skill group (Skilled < 1600, Advanced 1600–1999, Master ≥ 2000).
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Jawadyyy/Maia-2-DL-Project/blob/main/notebooks/maia2_reproduction.ipynb)
+
+We reproduce **Table 1** of *Maia-2: A Unified Model for Human-AI Alignment in Chess* (Tang et al., NeurIPS 2024).
+It reports top-1 accuracy at predicting the move a human plays, for three skill groups: Skilled < 1600, Advanced 1600–1999 and Master ≥ 2000.
 We also **train Maia-2 from scratch** with the official training code on the officially released example games, and add a skill-blind analysis.
 
 | | |
 |---|---|
-| Paper | https://openreview.net/forum?id=XWlkhRn14K · https://arxiv.org/abs/2409.20553 (DOI 10.48550/arXiv.2409.20553) |
+| Paper | https://openreview.net/forum?id=XWlkhRn14K · https://arxiv.org/abs/2409.20553 (DOI 10.48550/arXiv.2409.20553) · local copy in [`paper/`](paper/) |
 | Official code | https://github.com/CSSLab/maia2 (MIT), commit `67bee6ce7e2f264344fe6d2026a2e18c76a82efa` |
-| Data | Lichess rated Rapid games (https://database.lichess.org/), via the official `maia2.dataset` loaders (Maia Testset: 106,740 positions; example training PGN: 28,196 games) |
+| Data | Lichess rated Rapid games (https://database.lichess.org/), through the official `maia2.dataset` loaders: the Maia Testset (106,740 positions) and an example training PGN (28,196 games, of which about 4,000 are rated Rapid) |
 | Model | ResNet CNN board encoder + skill-aware attention + policy / auxiliary / value heads (23.3M parameters) |
 | Main metric | Top-1 move accuracy, averaged over the 3 skill groups (paper: **53.25%**) |
 
+## Repository structure
+
+```
+paper/        the original research paper (PDF)
+notebooks/    maia2_reproduction.ipynb, the whole experiment (run on Google Colab)
+results/      result tables, figures and logs from the Colab run (see results/README.md)
+docs/report/  the assignment report (.docx and the submitted .pdf)
+docs/screenshots/  screenshots of the notebook running (execution evidence)
+references.bib     citations for the paper, code and data
+```
+
 ## How to run (Google Colab)
 
-1. Open `maia2_reproduction.ipynb` in Colab and choose **Runtime → Change runtime type → T4 GPU**.
+1. Click **Open in Colab** above, then choose **Runtime → Change runtime type → T4 GPU**.
 2. Leave `SMOKE_TEST = True` and select **Runtime → Run all** (about 10 minutes). This checks the whole pipeline.
 3. Set `SMOKE_TEST = False` and select **Run all** again for the real experiment.
-4. Outputs (results tables, figures, logs, environment record, predictions, and a zip of everything) are saved to `MyDrive/maia2-reproduction/full/`.
+4. Outputs are saved to Google Drive under `MyDrive/maia2-reproduction/full/`. Copy them into `results/` as described in [`results/README.md`](results/README.md).
 
 No accounts or tokens are needed.
 
@@ -28,10 +41,29 @@ No accounts or tokens are needed.
 
 | | Paper | Ours | Why |
 |---|---|---|---|
-| Table 1 evaluation | released Maia-2 Rapid model, Maia Testset | the same checkpoint and test set (group sizes match exactly) | none |
-| Training data | 169M games / 9.1B positions | 28,196 example games | compute: the paper trained for 13 days on 2× A100 |
+| Table 1 evaluation | released Maia-2 Rapid model, Maia Testset | the same checkpoint and test set (group sizes match exactly: 56,812 / 41,747 / 8,181) | none |
+| Training data | 169M games / 9.1B positions | about 4,000 rated Rapid games from the official example file | compute: the paper trained for 13 days on 2× A100 |
 | Batch size | 8192 | 2048 | T4 memory (16 GB) |
 | Balancing cap | 20 games per rating pair per chunk | off (all games kept) | the cap is designed for monthly files with millions of games |
 | Software | torch 2.8 (package pin) | Colab's preinstalled torch (recorded in `environment.json`) | Colab compatibility |
 
-Results: see `results/` once the notebook has run (files are written to Drive and copied here).
+## Still to add
+
+- [ ] Run the notebook on Colab with `SMOKE_TEST = False`
+- [ ] Copy the Colab outputs into `results/` (see `results/README.md`)
+- [ ] Screenshots of the run into `docs/screenshots/` (list below)
+- [ ] Final report into `docs/report/` (`.docx` + submitted `.pdf`)
+
+**Screenshots to take** (unedited, while the cells run):
+1. `01_environment.png`: environment cell output (GPU, versions) and `nvidia-smi`
+2. `02_dataset.png`: test set group sizes matching the paper, and the train data audit
+3. `03_table1.png`: the reproduced Table 1 output
+4. `04_training.png`: the training log, including the final `exit code 0` line
+5. `05_epochs.png`: the own-training accuracy per epoch
+6. `06_comparison.png`: the final comparison table with Δ vs the paper
+7. `07_figures.png`: the figures
+8. `08_repo.png`: this GitHub repository page
+
+## Note on the paper PDF
+
+`paper/` holds a copy for the team's convenience. arXiv distributes the paper under its non-exclusive licence, which does not explicitly allow redistribution, so keep this repository private, or remove the PDF and link to arXiv if you make it public.
