@@ -1,0 +1,4 @@
+Model,Skilled,Advanced,Master,Avg,Skilled CI,Skilled n,Advanced CI,Advanced n,Master CI,Master n,Overall (all positions),Top-3 avg,Δ Avg vs paper (pp)
+Maia-2 (paper),51.72,54.15,53.87,53.25,,,,,,,,,0.0
+Maia 1500 (best Maia-1) (paper),50.79,52.61,50.76,51.39,,,,,,,,,-1.8599999999999994
+Maia-2 official checkpoint (reproduced),51.976695064423005,54.44223537020624,54.162082874954166,53.5270044365278,51.57–52.39,56812.0,53.96–54.92,41747.0,53.08–55.24,8181.0,53.108487914558744,81.5239595769843,0.2770044365277968

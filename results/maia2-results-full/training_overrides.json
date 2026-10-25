@@ -1,0 +1,16 @@
+{
+  "data_root": "/content/work/lichess_data",
+  "save_root": "/content/work/own_training_20261025-071711",
+  "game_type": "rapid",
+  "seed": 42,
+  "start_year": 2018,
+  "start_month": 4,
+  "end_year": 2018,
+  "end_month": 4,
+  "max_epochs": 3,
+  "batch_size": 2048,
+  "chunk_size": 1000,
+  "num_workers": 2,
+  "verbose": 0,
+  "max_games_per_elo_range": 1000000000
+}
